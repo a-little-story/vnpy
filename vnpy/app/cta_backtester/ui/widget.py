@@ -174,7 +174,8 @@ class BacktesterManager(QtWidgets.QWidget):
         self.statistics_monitor.set_data(statistics)
 
         df = self.backtester_engine.get_result_df()
-        self.chart.set_data(df)
+        if df:
+            self.chart.set_data(df)
 
     def process_optimization_finished_event(self, event: Event):
         """"""
